@@ -181,8 +181,17 @@ msgstr "Message"
 msgid "settings.settings"
 msgstr "Settings"
 
+msgid "settings.profile"
+msgstr "Profile"
+
+msgid "settings.password"
+msgstr "Password"
+
 msgid "settings.oauth"
-msgstr "OAuth Settings"
+msgstr "Single-Sign-On"
+
+msgid "settings.oauth.identity-provider"
+msgstr "Identity provider"
 
 msgid "oauth.login"
 msgstr "Login using OAuth"
