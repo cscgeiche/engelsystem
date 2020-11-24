@@ -103,7 +103,8 @@ class PasswordResetControllerTest extends TestCase
     public function testResetPassword(): void
     {
         $this->initDatabase();
-
+        
+        $this->app->instance('config', new Config(['min_password_length' => 3]));
         $user = $this->createUser();
         $token = $this->createToken($user);
         $request = new Request([], [], ['token' => $token->token]);

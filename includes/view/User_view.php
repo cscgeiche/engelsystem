@@ -7,6 +7,7 @@ use Engelsystem\Models\Worklog;
 use Engelsystem\Renderer\Renderer;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Engelsystem\Controllers\SettingsController;
 
 /**
  * Renders user settings page
