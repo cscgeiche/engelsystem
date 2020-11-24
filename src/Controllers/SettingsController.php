@@ -69,15 +69,15 @@ class SettingsController extends BaseController
             !$request->has('password')
             || !$this->auth->verifyPassword($user, $request->postData('password'))
         ) {
-            $this->addNotification(__('-> not OK. Please try again.'), 'errors');
+            $this->addNotification('-> not OK. Please try again.', 'errors');
         } elseif (strlen($request->postData('new_password')) < config('min_password_length')) {
-            $this->addNotification(__('Your password is to short (please use at least 6 characters).'), 'errors');
+            $this->addNotification('Your password is to short (please use at least 6 characters).', 'errors');
         } elseif ($request->postData('new_password') != $request->postData('new_password2')) {
-            $this->addNotification(__('Your passwords don\'t match.'), 'errors');
+            $this->addNotification('Your passwords don\'t match.', 'errors');
         } else {
             $this->auth->setPassword($user, $request->postData('new_password'));
 
-            $this->addNotification(__('Password saved.'));
+            $this->addNotification('Password saved.');
             $this->log->info('User set new password.');
         }
         
