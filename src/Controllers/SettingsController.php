@@ -13,16 +13,16 @@ use Psr\Log\LoggerInterface;
 class SettingsController extends BaseController
 {
     use HasUserNotifications;
-    
+
     /** @var Authenticator */
     protected $auth;
-    
+
     /** @var Config */
     protected $config;
-    
+
     /** @var LoggerInterface */
     protected $log;
-    
+
     /** @var Redirector */
     protected $redirect;
 
@@ -39,14 +39,14 @@ class SettingsController extends BaseController
         LoggerInterface $log,
         Redirector $redirector,
         Response $response
-        ) {
+    ) {
             $this->auth = $auth;
             $this->config = $config;
             $this->log = $log;
             $this->redirect = $redirector;
             $this->response = $response;
     }
-    
+
     /**
      * @return Response
      */
@@ -57,14 +57,14 @@ class SettingsController extends BaseController
             $this->getNotifications()
         );
     }
-    
+
     /**
      * @return Response
      */
     public function savePassword(Request $request): Response
     {
         $user = $this->auth->user();
-        
+
         if (
             !$request->has('password')
             || !$this->auth->verifyPassword($user, $request->postData('password'))
@@ -80,7 +80,7 @@ class SettingsController extends BaseController
             $this->addNotification('Password saved.');
             $this->log->info('User set new password.');
         }
-        
+
         return $this->redirect->to('/settings/password');
     }
 
